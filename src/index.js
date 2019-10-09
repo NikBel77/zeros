@@ -16,32 +16,33 @@ module.exports = function zeros(expression) {
 
       if (num % 2 !== 0) {
 
-        for (let j = 1; 5 * j <= num; j += 2) {
+        for (let j = 1; Math.pow(5, j) <= num; j++) {
 
-            numF += 1;
+          for (let i = 1; Math.pow(5, j) * i <= num; i += 2) {
 
-        }
+            if (Math.pow(5, j) * i <= num) {
 
-        for (let k = 1; k * 25 <= num; k += 2) {
-
-          if (num >= k * 25) {
-
-            numF += 1;
+              numF +=1;
+            }
           }
-
         }
-
       }
       else if (num % 2 === 0) {
 
-        zero += Math.floor(num / 10);
-        zero += Math.floor(num / 50);
+        for (let j = 1; Math.pow(5, j) <= num; j++) {
 
-        numT += Math.floor(num / 2)
+          for (let i = 2; Math.pow(5, j) * i <= num; i += 2) {
+
+            if (Math.pow(5, j) * i <= num) {
+
+              zero +=1;
+            }
+          }
+        }
+
+        numT += Math.floor(num / 2);
 
       }
-
-      
     }
     else if (ep[i].lastIndexOf('!') !== -1) {
 
@@ -58,7 +59,6 @@ module.exports = function zeros(expression) {
       numT += Math.floor(num / 2)
 
     }
-
   }
   
   if (numT > numF) {
